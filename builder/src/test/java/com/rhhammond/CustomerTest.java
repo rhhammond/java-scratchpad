@@ -1,8 +1,7 @@
 package com.rhhammond;
 
-import junit.framework.Test;
 import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import org.junit.Test;
 
 import static org.hamcrest.core.StringContains.containsString;
 import static org.junit.Assert.assertThat;
@@ -10,27 +9,9 @@ import static org.junit.Assert.assertThat;
 /**
  * Unit test for simple App.
  */
-public class CustomerTest
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public CustomerTest(String testName)
-    {
-        super( testName );
-    }
+public class CustomerTest extends TestCase {
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( CustomerTest.class );
-    }
-
+    @Test
     public void testBuilder()
     {
         Customer c = new Customer.CustomerBuilder()
@@ -42,9 +23,19 @@ public class CustomerTest
         assertEquals("Mr.", c.getTitle());
         assertEquals("Robert", c.getFirstName());
         assertEquals("Hammond", c.getLastName());
-
         assertThat(c.toString(), containsString("title=Mr."));
         assertThat(c.toString(), containsString("firstName=Robert"));
         assertThat(c.toString(), containsString("lastName=Hammond"));
+    }
+
+    @Test
+    public void testEmptyBuilder(){
+        Customer c = new Customer.CustomerBuilder().build();
+        assertNull(c.getFirstName());
+        assertNull(c.getLastName());
+        assertNull(c.getTitle());
+        assertThat(c.toString(), containsString("title=<null>"));
+        assertThat(c.toString(), containsString("firstName=<null>"));
+        assertThat(c.toString(), containsString("lastName=<null>"));
     }
 }
