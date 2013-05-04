@@ -1,5 +1,6 @@
 java-scratchpad
 ===============
+A collection of Java code samples for learning new patterns and language features
 
 ##builder##
 
