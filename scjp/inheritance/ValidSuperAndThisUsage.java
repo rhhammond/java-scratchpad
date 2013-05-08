@@ -11,5 +11,7 @@ public class ValidSuperAndThisUsage extends Parent {
 		this.doIt();
 		super.doIt();
 	}
+
+	public void doIt() { System.out.println("I done already did it!!");}
 }
 	
