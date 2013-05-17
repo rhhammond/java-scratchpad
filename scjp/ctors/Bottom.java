@@ -1,5 +1,10 @@
-/* Static initializer blocks are executed before ctors! */
-
+/*
+Order of execution during instantiation:	
+	1) static initializer
+	2) call super()
+	3) initializer block
+	4) constructor body
+*/
 class Top {
 	static { System.out.println("Static Top initializer"); }
 	{ System.out.println("Top initializer"); }
