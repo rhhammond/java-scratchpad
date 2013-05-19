@@ -3,7 +3,7 @@ class Fields {
 	protected int protectedInt=456;
 }
 
-public class DefaultAndPrivate {
+public class DefaultAndProtected {
 
 	public static void main(String[] args) {
 		Fields f=new Fields();
